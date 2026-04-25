@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-<meta name="theme-color" content="#ffffff" />
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="default" />
-<meta name="apple-mobile-web-app-title" content="交易日誌" />
-<link rel="manifest" href="manifest.json" />
-<link rel="apple-touch-icon" href="icons/icon-192.png" />
+<!-- saved from url=(0045)file:///Users/zhangyahan/Downloads/index.html -->
+<html lang="zh-TW"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="theme-color" content="#ffffff">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="交易日誌">
+<link rel="manifest" href="file:///Users/zhangyahan/Downloads/manifest.json">
+<link rel="apple-touch-icon" href="file:///Users/zhangyahan/Downloads/icons/icon-192.png">
 <title>交易日誌</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -106,10 +106,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
   <div class="header">
     <h1>交易系統</h1>
     <div class="tabs">
-      <button class="tab active" onclick="switchTab('calc')">計算器</button>
-      <button class="tab" onclick="switchTab('log')">新增</button>
-      <button class="tab" onclick="switchTab('history')">歷史</button>
-      <button class="tab" onclick="switchTab('stats')">統計</button>
+      <button class="tab active" onclick="switchTab(&#39;calc&#39;)">計算器</button>
+      <button class="tab" onclick="switchTab(&#39;log&#39;)">新增</button>
+      <button class="tab" onclick="switchTab(&#39;history&#39;)">歷史</button>
+      <button class="tab" onclick="switchTab(&#39;stats&#39;)">統計</button>
     </div>
   </div>
   <div class="content">
@@ -118,88 +118,98 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
     <div class="panel active" id="panel-calc">
       <p class="slabel">帳戶設定</p>
       <div class="row2">
-        <div class="ig"><label>帳戶餘額 (U)</label><input type="number" id="c_balance" value="1152.19" step="0.01" oninput="calcUpdate()" /></div>
-        <div class="ig"><label>槓桿</label><input type="number" id="c_leverage" value="100" step="1" oninput="calcUpdate()" /></div>
+        <div class="ig"><label>帳戶餘額 (U)</label><input type="number" id="c_balance" value="1152.19" step="0.01" oninput="calcUpdate()"></div>
+        <div class="ig"><label>槓桿</label><input type="number" id="c_leverage" value="100" step="1" oninput="calcUpdate()"></div>
       </div>
       <div class="row2">
-        <div class="ig"><label>每日目標 (U)</label><input type="number" id="c_target" value="100" oninput="calcUpdate()" /></div>
-        <div class="ig"><label>每日最大虧損 (U)</label><input type="number" id="c_maxloss" value="70" oninput="calcUpdate()" /></div>
+        <div class="ig"><label>每日目標 (U)</label><input type="number" id="c_target" value="100" oninput="calcUpdate()"></div>
+        <div class="ig"><label>每日最大虧損 (U)</label><input type="number" id="c_maxloss" value="70" oninput="calcUpdate()"></div>
       </div>
-      <hr class="divider" />
+      <hr class="divider">
       <p class="slabel">這筆單</p>
       <div class="row3">
-        <div class="ig"><label>保證金 (%)</label><input type="number" id="c_margin" value="7" step="0.5" oninput="calcUpdate()" /></div>
+        <div class="ig"><label>保證金 (%)</label><input type="number" id="c_margin" value="7" step="0.5" oninput="calcUpdate()"></div>
         <div class="ig"><label>方向</label><select id="c_dir" onchange="calcUpdate()"><option value="long">做多</option><option value="short">做空</option></select></div>
-        <div class="ig"><label>進場價</label><input type="number" id="c_entry" value="1800" step="0.01" oninput="calcUpdate()" /></div>
+        <div class="ig"><label>進場價</label><input type="number" id="c_entry" value="1800" step="0.01" oninput="calcUpdate()"></div>
       </div>
       <div class="row2">
-        <div class="ig"><label>止損價</label><input type="number" id="c_sl" value="1785" step="0.01" oninput="calcUpdate()" /></div>
-        <div class="ig"><label>止盈價（選填）</label><input type="number" id="c_tp" placeholder="自動計算" step="0.01" oninput="calcUpdate()" /></div>
+        <div class="ig"><label>止損價</label><input type="number" id="c_sl" value="1785" step="0.01" oninput="calcUpdate()"></div>
+        <div class="ig"><label>止盈價（選填）</label><input type="number" id="c_tp" placeholder="自動計算" step="0.01" oninput="calcUpdate()"></div>
       </div>
-      <div class="warn-box" id="c_warn">⚠ 這筆風險超過每日最大虧損上限</div>
+      <hr class="divider">
+      <p class="slabel">手續費設定</p>
+      <div class="row2">
+        <div class="ig"><label>進場費率 Taker (%)</label><input type="number" id="c_fee_entry" value="0.0500" step="0.0001" oninput="calcUpdate()"></div>
+        <div class="ig"><label>出場費率 Maker/Taker (%)</label><input type="number" id="c_fee_exit" value="0.0200" step="0.0001" oninput="calcUpdate()"></div>
+      </div>
+      <div class="warn-box" id="c_warn" style="display: block;">⚠ 這筆風險超過每日最大虧損上限</div>
       <div class="metric-grid">
-        <div class="metric"><div class="ml">保證金</div><div class="mv" id="cm_margin">—</div></div>
-        <div class="metric"><div class="ml">控倉規模</div><div class="mv" id="cm_size">—</div></div>
-        <div class="metric"><div class="ml">止損距離</div><div class="mv" id="cm_slpct">—</div></div>
-        <div class="metric"><div class="ml">風險 (U)</div><div class="mv" id="cm_risk">—</div></div>
-        <div class="metric"><div class="ml">佔日止損</div><div class="mv" id="cm_dpct">—</div></div>
-        <div class="metric"><div class="ml">爆倉距離</div><div class="mv" id="cm_liq">—</div></div>
+        <div class="metric"><div class="ml">保證金</div><div class="mv" id="cm_margin">80.65 U</div></div>
+        <div class="metric"><div class="ml">控倉規模</div><div class="mv" id="cm_size">8065 U</div></div>
+        <div class="metric"><div class="ml">止損距離</div><div class="mv" id="cm_slpct">0.83%</div></div>
+        <div class="metric"><div class="ml">風險 (含手續費)</div><div class="mv neg" id="cm_risk">72.84 U</div></div>
+        <div class="metric"><div class="ml">佔日止損</div><div class="mv neg" id="cm_dpct">104.1%</div></div>
+        <div class="metric"><div class="ml">手續費合計</div><div class="mv neg" id="cm_fee">-5.65 U</div></div>
       </div>
-      <p class="slabel">止盈目標</p>
-      <div class="rr-row" id="cm_rr"></div>
+      <div class="metric-grid" style="grid-template-columns:1fr 1fr;margin-bottom:16px">
+        <div class="metric"><div class="ml">爆倉距離</div><div class="mv" id="cm_liq">1782.00</div></div>
+        <div class="metric"><div class="ml">損益平衡價</div><div class="mv" id="cm_be">1800.90</div></div>
+      </div>
+      <p class="slabel">止盈目標（扣手續費後）</p>
+      <div class="rr-row" id="cm_rr"><div class="rr-card"><div class="rl">1 : 1.5</div><div class="rv">1822.50</div><div class="rp">淨 +95.15 U</div></div><div class="rr-card"><div class="rl">1 : 2</div><div class="rv">1830.00</div><div class="rp">淨 +128.75 U</div></div><div class="rr-card"><div class="rl">1 : 3</div><div class="rv">1845.00</div><div class="rp">淨 +195.95 U</div></div></div>
     </div>
 
     <!-- LOG -->
     <div class="panel" id="panel-log">
       <p class="slabel">基本資訊</p>
       <div class="row3">
-        <div class="ig"><label>日期</label><input type="date" id="l_date" /></div>
-        <div class="ig"><label>幣種</label><input type="text" id="l_symbol" value="ETH" /></div>
+        <div class="ig"><label>日期</label><input type="date" id="l_date"></div>
+        <div class="ig"><label>幣種</label><input type="text" id="l_symbol" value="ETH"></div>
         <div class="ig"><label>方向</label><select id="l_dir"><option value="long">做多</option><option value="short">做空</option></select></div>
       </div>
       <div class="row3">
-        <div class="ig"><label>進場價</label><input type="number" id="l_entry" step="0.01" /></div>
-        <div class="ig"><label>止損價</label><input type="number" id="l_sl" step="0.01" /></div>
-        <div class="ig"><label>止盈價</label><input type="number" id="l_tp" step="0.01" /></div>
+        <div class="ig"><label>進場價</label><input type="number" id="l_entry" step="0.01"></div>
+        <div class="ig"><label>止損價</label><input type="number" id="l_sl" step="0.01"></div>
+        <div class="ig"><label>止盈價</label><input type="number" id="l_tp" step="0.01"></div>
       </div>
       <div class="row2">
-        <div class="ig"><label>盈虧 (U)，虧損填負數</label><input type="number" id="l_pnl" step="0.01" placeholder="+45.5 或 -30" /></div>
+        <div class="ig"><label>盈虧 (U)，虧損填負數</label><input type="number" id="l_pnl" step="0.01" placeholder="+45.5 或 -30"></div>
         <div class="ig"><label>結果</label><select id="l_outcome"><option value="win">獲利</option><option value="loss">虧損</option><option value="be">保本</option></select></div>
       </div>
-      <hr class="divider" />
+      <hr class="divider">
       <p class="slabel">進場理由（可複選）</p>
       <div class="chip-row" id="reason_chips">
-        <div class="chip" onclick="toggleChip(this,'重疊K')">重疊K</div>
-        <div class="chip" onclick="toggleChip(this,'真空區')">真空區</div>
-        <div class="chip" onclick="toggleChip(this,'POC止盈')">POC止盈</div>
-        <div class="chip" onclick="toggleChip(this,'日開')">日開</div>
-        <div class="chip" onclick="toggleChip(this,'四小開')">四小開</div>
-        <div class="chip" onclick="toggleChip(this,'結構支撐')">結構支撐</div>
-        <div class="chip" onclick="toggleChip(this,'結構壓力')">結構壓力</div>
+        <div class="chip" onclick="toggleChip(this,&#39;重疊K&#39;)">重疊K</div>
+        <div class="chip" onclick="toggleChip(this,&#39;真空區&#39;)">真空區</div>
+        <div class="chip" onclick="toggleChip(this,&#39;POC止盈&#39;)">POC止盈</div>
+        <div class="chip" onclick="toggleChip(this,&#39;日開&#39;)">日開</div>
+        <div class="chip" onclick="toggleChip(this,&#39;四小開&#39;)">四小開</div>
+        <div class="chip" onclick="toggleChip(this,&#39;結構支撐&#39;)">結構支撐</div>
+        <div class="chip" onclick="toggleChip(this,&#39;結構壓力&#39;)">結構壓力</div>
       </div>
-      <hr class="divider" />
+      <hr class="divider">
       <p class="slabel">情緒狀態</p>
       <div class="chip-row" id="emotion_chips">
-        <div class="chip" onclick="toggleSingle(this,'emotion_chips')">冷靜</div>
-        <div class="chip" onclick="toggleSingle(this,'emotion_chips')">急躁</div>
-        <div class="chip" onclick="toggleSingle(this,'emotion_chips')">FOMO</div>
-        <div class="chip" onclick="toggleSingle(this,'emotion_chips')">報復</div>
-        <div class="chip" onclick="toggleSingle(this,'emotion_chips')">猶豫</div>
+        <div class="chip" onclick="toggleSingle(this,&#39;emotion_chips&#39;)">冷靜</div>
+        <div class="chip" onclick="toggleSingle(this,&#39;emotion_chips&#39;)">急躁</div>
+        <div class="chip" onclick="toggleSingle(this,&#39;emotion_chips&#39;)">FOMO</div>
+        <div class="chip" onclick="toggleSingle(this,&#39;emotion_chips&#39;)">報復</div>
+        <div class="chip" onclick="toggleSingle(this,&#39;emotion_chips&#39;)">猶豫</div>
       </div>
-      <hr class="divider" />
+      <hr class="divider">
       <p class="slabel">圖表截圖</p>
       <div class="img-upload-area" id="upload_area">
-        <input type="file" accept="image/*" onchange="handleFileUpload(event)" />
+        <input type="file" accept="image/*" onchange="handleFileUpload(event)">
         點擊或拖曳上傳截圖
       </div>
-      <img id="img_preview" class="img-preview" alt="預覽" />
+      <img id="img_preview" class="img-preview" alt="預覽">
       <button class="img-clear" id="img_clear_btn" onclick="clearImage()">清除圖片</button>
       <div style="margin:10px 0 5px;font-size:12px;color:var(--text2)">或貼上圖片網址</div>
       <div class="img-url-row">
-        <input type="text" id="img_url_input" placeholder="https://i.imgur.com/..." />
+        <input type="text" id="img_url_input" placeholder="https://i.imgur.com/...">
         <button onclick="applyImgUrl()">套用</button>
       </div>
-      <hr class="divider" />
+      <hr class="divider">
       <div class="ig"><label>備註</label><textarea id="l_note" placeholder="這筆哪裡做對了？哪裡可以更好？"></textarea></div>
       <button class="btn primary" onclick="saveTrade()">儲存這筆紀錄</button>
     </div>
@@ -218,7 +228,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;backgrou
 </div>
 
 <div class="modal-overlay" id="img_modal" onclick="closeModal()">
-  <img id="modal_img" src="" alt="放大圖" />
+  <img id="modal_img" src="file:///Users/zhangyahan/Downloads/index.html" alt="放大圖">
 </div>
 <div class="toast" id="toast"></div>
 
@@ -291,13 +301,22 @@ function calcUpdate(){
   const dir=document.getElementById('c_dir').value;
   const entry=parseFloat(document.getElementById('c_entry').value)||0;
   const sl=parseFloat(document.getElementById('c_sl').value)||0;
+  const fee_entry=(parseFloat(document.getElementById('c_fee_entry').value)||0)/100;
+  const fee_exit=(parseFloat(document.getElementById('c_fee_exit').value)||0)/100;
   if(!entry||!sl)return;
   const margin=balance*(margin_pct/100);
   const size=margin*leverage;
   const qty=size/entry;
   const sl_dist=Math.abs(entry-sl);
   const sl_pct=(sl_dist/entry)*100;
-  const risk_u=qty*sl_dist;
+  // 手續費：進場fee + 出場fee（以止損價計算出場）
+  const fee_in=size*fee_entry;
+  const fee_out_sl=qty*sl*fee_exit;
+  const total_fee_sl=fee_in+fee_out_sl;
+  const risk_u=qty*sl_dist+total_fee_sl;
+  // 損益平衡價：需要漲/跌多少才能覆蓋進場手續費
+  const be_move=(fee_in)/(qty*(1-fee_exit));
+  const be_price=dir==='long'?entry+be_move:entry-be_move;
   const liq_price=dir==='long'?entry*(1-1/leverage):entry*(1+1/leverage);
   const daily_pct=maxloss>0?(risk_u/maxloss)*100:0;
   document.getElementById('cm_margin').textContent=margin.toFixed(2)+' U';
@@ -310,14 +329,20 @@ function calcUpdate(){
   dm.textContent=daily_pct.toFixed(1)+'%';
   dm.className='mv '+(daily_pct>100?'neg':daily_pct>70?'warn':'pos');
   document.getElementById('cm_liq').textContent=liq_price.toFixed(2);
+  document.getElementById('cm_be').textContent=be_price.toFixed(2);
   document.getElementById('c_warn').style.display=risk_u>maxloss?'block':'none';
+  // 手續費顯示：進場+最大出場
+  const max_fee=(fee_in+qty*entry*fee_exit);
+  document.getElementById('cm_fee').textContent='-'+max_fee.toFixed(2)+' U';
   const rr_row=document.getElementById('cm_rr');
   rr_row.innerHTML='';
   [1.5,2,3].forEach(rr=>{
     const tp_dist=sl_dist*rr;
     const tp_price=dir==='long'?entry+tp_dist:entry-tp_dist;
-    const tp_u=qty*tp_dist;
-    rr_row.innerHTML+=`<div class="rr-card"><div class="rl">1 : ${rr}</div><div class="rv">${tp_price.toFixed(2)}</div><div class="rp">+${tp_u.toFixed(2)} U</div></div>`;
+    const fee_out_tp=qty*tp_price*fee_exit;
+    const gross_u=qty*tp_dist;
+    const net_u=gross_u-fee_in-fee_out_tp;
+    rr_row.innerHTML+=`<div class="rr-card"><div class="rl">1 : ${rr}</div><div class="rv">${tp_price.toFixed(2)}</div><div class="rp">淨 +${net_u.toFixed(2)} U</div></div>`;
   });
 }
 
@@ -455,5 +480,6 @@ loadTrades();
 calcUpdate();
 document.getElementById('l_date').value=new Date().toISOString().split('T')[0];
 </script>
-</body>
-</html>
+
+
+</body></html>
